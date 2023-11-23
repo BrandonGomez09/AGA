@@ -4,12 +4,12 @@ export default function Main() {
     return (
     <>
     <Navbar/>
-    <div className="relative overflow-hidden bg-white ">
+    <div className="relative overflow-hidden bg-white mt-2">
             <div className="pb-80 pt-16 sm:pb-40 sm:pt-24 lg:pb-48 lg:pt-40">
                 <div className="relative mx-auto max-w-7xl px-4 sm:static sm:px-6 lg:px-8">
                     <div className="sm:max-w-xl">
                         <h1 className="text-4xl font-bold tracking-tight text-[#322017] sm:text-6xl">
-                            Elegancia en cada detalle, estilo en cada momento
+                            Elegancia en cada detalle, estilo en cada momento.
                         </h1>
                         <p className="mt-4 text-lg text-[#6a6a6a]">
                         Nuestra marca personifica la elegancia en cada detalle y el estilo en cada momento, te invita a descubrir una experiencia única y refinada.
@@ -17,7 +17,6 @@ export default function Main() {
                     </div>
                     <div>
                         <div className="mt-10">
-                            {/* Decorative image grid */}
                             <div
                                 aria-hidden="true"
                                 className="pointer-events-none lg:absolute lg:inset-y-0 lg:mx-auto lg:w-full lg:max-w-7xl"
