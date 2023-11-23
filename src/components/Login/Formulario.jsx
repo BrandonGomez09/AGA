@@ -1,14 +1,21 @@
+import { ArrowLeftIcon } from '@heroicons/react/24/outline'
+
 export default function Formulario() {
     return (
         <>
 
             <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
                 <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-                    <img
-                        className="mx-auto h-20 w-auto"
-                        src="/public/aga.webp"
-                        alt="Your Company"
-                    />
+                    <div>
+                        <a href='/'>
+                            <ArrowLeftIcon className='h-5 w-auto text-gray-600 cursor-pointer hover:animate-pulse hover:scale-110 duration-300' />
+                        </a>
+                        <img
+                            className="mx-auto h-20 w-auto"
+                            src="/public/aga.webp"
+                            alt="aga-logo"
+                        />
+                    </div>
                     <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-[#322017]">
                         Ingresa en tu cuenta
                     </h2>
