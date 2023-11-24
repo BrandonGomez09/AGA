@@ -11,13 +11,13 @@ const navigation = {
             featured: [
                 {
                     name: 'Los mejores artículos',
-                    href: '#',
+                    href: '/articulos',
                     imageSrc: 'https://scontent.ftgz1-2.fna.fbcdn.net/v/t39.30808-6/358557885_727788089354713_4497617530033296378_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_ohc=bDOCeUuCFbgAX8Kmn_d&_nc_ht=scontent.ftgz1-2.fna&oh=00_AfBIWqlZfZlk7YT5hLLKaRnyrl-y8PTvqdnE7lEueVthVw&oe=65636527',
                     imageAlt: 'Models sitting back to back, wearing Basic Tee in black and bone.',
                 },
                 {
                     name: 'Calidad inefable',
-                    href: '#',
+                    href: '/articulos',
                     imageSrc: 'https://scontent.ftgz1-2.fna.fbcdn.net/v/t39.30808-6/358571850_727788172688038_7836378627516446191_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=Wed6gOcbMVQAX9g6RBP&_nc_ht=scontent.ftgz1-2.fna&oh=00_AfBP1sMbY06Ztuu8So08ZJuXMlAg0XD-kQoG7bvBqsDxzQ&oe=6563438E',
                     imageAlt: 'Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees.',
                 }
