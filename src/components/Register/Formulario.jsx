@@ -4,7 +4,7 @@ import { ArrowLeftIcon } from '@heroicons/react/24/outline'
 export default function Formulario() {
     return (
         <>
-            <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+            <div className="flex min-h-full h-screen flex-1 flex-col justify-center px-6 py-12 lg:px-8 bg-[#F9FAFB]">
                 <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                     <div>
                         <a href='/'>
@@ -16,12 +16,12 @@ export default function Formulario() {
                             alt="aga-logo"
                         />
                     </div>
-                    <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-[#322017]">
+                    <h2 className="mt-2 text-center text-2xl font-bold leading-9 tracking-tight text-[#322017]">
                         Ingresa en tu cuenta
                     </h2>
                 </div>
 
-                <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+                <div className="mt-4 p-16 sm:mx-auto sm:w-full sm:max-w-lg  rounded-md bg-white border-[0.1px] shadow-lg">
                     <form className="space-y-6" action="#" method="POST">
 
                         <div className="flex justify-between items-center">
@@ -136,14 +136,13 @@ export default function Formulario() {
                             </button>
                         </div>
                     </form>
-
-                    <p className="mt-10 text-center text-sm text-gray-500">
+                </div>
+                <p className="mt-4 text-center text-sm text-gray-500">
                         ¿Ya tienes una cuenta?{'  '}
                         <a href="/login" className="font-semibold leading-6 text-[#322017] hover:text-[#4a372d]">
                             Inicia sesión aquí
                         </a>
                     </p>
-                </div>
             </div>
         </>
     )

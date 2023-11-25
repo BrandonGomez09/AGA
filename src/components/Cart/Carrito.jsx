@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { TrashIcon, MinusIcon, PlusIcon } from '@heroicons/react/24/outline'
+import { useNavigate } from 'react-router-dom';
 
 
 export default function Carrito() {
@@ -7,6 +8,7 @@ export default function Carrito() {
     const [total, setTotal] = useState();
     const [precios, setPrecios] = useState([]);
     const [items, setItems] = useState(false);
+    const navigate = useNavigate();
 
     const [dataExample, setDataExample] = useState([
         {
@@ -57,8 +59,10 @@ export default function Carrito() {
     };
 
     const handleBuy = () => {
-        console.log("Comprando productos:", dataExample);
+        localStorage.setItem('carrito', JSON.stringify(dataExample));
+        localStorage.setItem('total', JSON.stringify(total));
         setDataExample([]);
+        navigate("/resumen")
     };
 
     return (

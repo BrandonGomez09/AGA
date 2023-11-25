@@ -6,6 +6,7 @@ import Login from "../pages/Login.jsx";
 import Cart from "../pages/Cart.jsx";
 import Error from "../pages/Error.jsx";
 import ListaArticulos from "../pages/ListaArticulos.jsx";
+import Resumen from "../pages/Resumen.jsx";
 
 export default function Router() {
     return (
@@ -18,6 +19,7 @@ export default function Router() {
                     <Route path="/login" element={<Login />} />
                     <Route path="/cart" element={<Cart />} />
                     <Route path="/articulos" element={<ListaArticulos />} />
+                    <Route path="/resumen" element={<Resumen />} />
                 </Routes>
             </BrowserRouter>
         </>
