@@ -1,9 +1,58 @@
 import { ArrowLeftIcon } from '@heroicons/react/24/outline'
+import { XCircleIcon } from '@heroicons/react/20/solid'
+import { useState } from 'react'
 
 export default function Formulario() {
+
+    const [usuario, setUsuario] = useState({
+        correo: "",
+        nombre: "",
+        contra: "",
+    });
+    const [error, setError] = useState(false)
+
+
+    const validarCorreo = (correo) => {
+        const regexCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return regexCorreo.test(correo);
+    };
+
+    const validarContraseña = (contraseña) => {
+        const regexContraseña = /^.{8,}$/;
+        return regexContraseña.test(contraseña);
+    };
+
+    const validarUsuario = (usuario) => {
+        const regexUsuario = /^[a-zA-Z0-9_]{4,}$/;
+        return regexUsuario.test(usuario);
+    };
+
+    const handleLogin = (e) => {
+        e.preventDefault();
+        if (
+            validarUsuario(usuario.nombre) &&
+            validarCorreo(usuario.correo) &&
+            validarContraseña(usuario.contra)
+        ) {
+            console.log("Usuario, correo y contraseña válidos");
+            console.log(usuario);
+        } else {
+            console.log("Usuario, correo o contraseña inválidos");
+            setError(true)
+        }
+    }
+
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        setUsuario((prevData) => ({
+            ...prevData,
+            [name]: value,
+        }));
+        setError(false)
+    };
+
     return (
         <>
-
             <div className="flex min-h-full h-screen flex-1 flex-col justify-center px-6 py-12 lg:px-8 bg-[#F9FAFB]">
                 <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                     <div>
@@ -21,19 +70,20 @@ export default function Formulario() {
                     </h2>
                 </div>
 
-                <div className="mt-4 p-16 sm:mx-auto sm:w-full sm:max-w-lg  rounded-md bg-white border-[0.1px] shadow-lg">
-                    <form className="space-y-6" action="#" method="POST">
+                <div className="mt-4 p-16 sm:mx-auto sm:w-full sm:max-w-lg  rounded-md bg-white border-[0.1px] shadow-lg ">
+                    <form className="space-y-6" onSubmit={handleLogin}>
                         <div>
                             <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
                                 Correo electrónico
                             </label>
                             <div className="mt-2">
                                 <input
-                                    id="email"
-                                    name="email"
+                                    id="correo"
+                                    name="correo"
                                     type="email"
-                                    autoComplete="email"
+                                    autoComplete="off"
                                     required
+                                    onChange={handleChange}
                                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6"
                                 />
                             </div>
@@ -45,11 +95,12 @@ export default function Formulario() {
                             </label>
                             <div className="mt-2">
                                 <input
-                                    id="user"
-                                    name="user"
+                                    id="nombre"
+                                    name="nombre"
                                     type="text"
-                                    autoComplete="user"
+                                    autoComplete="off"
                                     required
+                                    onChange={handleChange}
                                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6"
                                 />
                             </div>
@@ -67,11 +118,12 @@ export default function Formulario() {
                             </div>
                             <div className="mt-2">
                                 <input
-                                    id="password"
-                                    name="password"
+                                    id="contra"
+                                    name="contra"
                                     type="password"
-                                    autoComplete="current-password"
+                                    autoComplete="off"
                                     required
+                                    onChange={handleChange}
                                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6"
                                 />
                             </div>
@@ -86,14 +138,49 @@ export default function Formulario() {
                             </button>
                         </div>
                     </form>
+                    {error ? <ErrorMessage /> : <div className="rounded-md bg-white p-4 mt-2">
+                        <div className="flex">
+        
+                            <div className="ml-3">
+                                <h3 className="text-sm font-medium text-white">Error al iniciar sesión</h3>
+                                <div className="mt-2 text-sm text-white">
+                                    <ul role="list" className="list-disc space-y-1 pl-5">
+                                        <li>Usuario o contraseña no válidos</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>}
                 </div>
                 <p className="mt-10 text-center text-sm text-gray-500">
-                        ¿No tienes una cuenta?{'  '}
-                        <a href="/register" className="font-semibold leading-6 text-[#322017] hover:text-[#4a372d]">
-                            Registrate aquí
-                        </a>
-                    </p>
+                    ¿No tienes una cuenta?{'  '}
+                    <a href="/register" className="font-semibold leading-6 text-[#322017] hover:text-[#4a372d]">
+                        Registrate aquí
+                    </a>
+                </p>
             </div>
         </>
+    )
+}
+
+
+
+function ErrorMessage() {
+    return (
+        <div className="rounded-md bg-red-50 p-4 mt-2">
+            <div className="flex">
+                <div className="flex-shrink-0">
+                    <XCircleIcon className="h-5 w-5 text-red-400" aria-hidden="true" />
+                </div>
+                <div className="ml-3">
+                    <h3 className="text-sm font-medium text-red-800">Error al iniciar sesión</h3>
+                    <div className="mt-2 text-sm text-red-700">
+                        <ul role="list" className="list-disc space-y-1 pl-5">
+                            <li>Usuario o contraseña no válidos</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     )
 }

@@ -12,6 +12,11 @@ export default function ResumenOrden() {
         console.log(carrito)
     },[]);
 
+    const handleDelete =()=>{
+        localStorage.removeItem("carrito");
+        localStorage.removeItem("total");
+    }
+
     if(carrito.length <= 0){
         return(
             <>
@@ -101,7 +106,7 @@ export default function ResumenOrden() {
 
 
                             <div className="mt-16 border-t border-gray-200 py-6 text-right">
-                                <a href="/" className="text-sm font-medium text-[#3f281c] hover:text-indigo-500">
+                                <a onClick={handleDelete} href="/" className="text-sm font-medium text-[#3f281c] hover:text-indigo-500">
                                     Continue Shopping
                                     <span aria-hidden="true"> &rarr;</span>
                                 </a>

@@ -19,6 +19,51 @@ export default function Carrito() {
             modelo: "Collar",
             foto: "aga.webp",
             cantidad: 1,
+        },
+        {
+            id: 2,
+            nombre: "Mochila",
+            precio: 599,
+            marca: "Guess",
+            modelo: "Mochila",
+            foto: "aga.webp",
+            cantidad: 1,
+        },
+        {
+            id: 3,
+            nombre: "Mochila",
+            precio: 599,
+            marca: "Guess",
+            modelo: "Mochila",
+            foto: "aga.webp",
+            cantidad: 1,
+        },
+        {
+            id: 4,
+            nombre: "Mochila",
+            precio: 599,
+            marca: "Guess",
+            modelo: "Mochila",
+            foto: "aga.webp",
+            cantidad: 1,
+        },
+        {
+            id: 5,
+            nombre: "Mochila",
+            precio: 599,
+            marca: "Guess",
+            modelo: "Mochila",
+            foto: "aga.webp",
+            cantidad: 1,
+        },
+        {
+            id: 6,
+            nombre: "Mochila",
+            precio: 599,
+            marca: "Guess",
+            modelo: "Mochila",
+            foto: "aga.webp",
+            cantidad: 1,
         }
     ])
 
@@ -66,7 +111,7 @@ export default function Carrito() {
     };
 
     return (
-        <div className="flex justify-center p-8 w-full max-w-6xl flex-col lg:mx-36">
+        <div className="flex justify-center p-8 w-full max-w-6xl flex-col mx-auto">
             <div className='flex justify-between items-center w-full mt-12'>
                 <div>
                     <h3 className='text-4xl font-normal text-gray-500'>Tu carrito</h3>
@@ -79,8 +124,8 @@ export default function Carrito() {
                 <div className='w-2/3'>
                     <p className='tracking-widest'>Producto</p>
                 </div>
-                <div className='flex justify-between items-center w-1/3'>
-                    <p className='tracking-widest'>Cantidad</p>
+                <div className='flex justify-between items-center w-1/2 sm:w-1/3'>
+                    <p className='tracking-widest hidden md:block'>Cantidad</p>
                     <p className='tracking-widest'>Total</p>
                 </div>
             </div>
@@ -94,17 +139,17 @@ export default function Carrito() {
                         dataExample.map((data) => {
                             return (
                                 <div key={data.id} className='flex justify-between items-center mb-14 mt-6'>
-                                    <div className='flex justify-start items-center w-2/3'>
-                                        <img className='h-24 min-h-[6rem] w-auto' src={data.foto} alt="item" />
-                                        <div className='flex flex-col text-sm ml-12 space-y-1 text-gray-500'>
+                                    <div className='flex justify-start items-center md:w-2/3 w-1/2'>
+                                        <img className='h-24 min-h-[6rem] w-auto hidden sm:block' src={data.foto} alt="item" />
+                                        <div className='flex flex-col text-sm md:ml-12 space-y-1 text-gray-500'>
                                             <p>{data.nombre}</p>
                                             <p>$ {data.precio}.00</p>
                                             <p>Modelo: {data.modelo}</p>
                                             <p>Marca: {data.marca}</p>
                                         </div>
                                     </div>
-                                    <div className='flex justify-between items-center w-1/3 text-gray-500'>
-                                        <div className='flex items-center justify-around gap-x-4'>
+                                    <div className='flex justify-between items-center sm:w-1/3 w-1/2 text-gray-500'>
+                                        <div className='md:flex items-center justify-around gap-x-4 hidden '>
                                             <MinusIcon
                                                 onClick={() => handleDecrement(data.id)}
                                                 className='h-4 w-auto cursor-pointer' />
@@ -114,7 +159,7 @@ export default function Carrito() {
                                                 className='h-4 w-auto cursor-pointer' />
                                             <TrashIcon
                                                 onClick={() => handleRemove(data.id)}
-                                                className='ml-12 h-4 w-auto cursor-pointer' />
+                                                className='md:ml-12 h-4 w-auto cursor-pointer' />
                                         </div>
                                         <p>$ {data.precio}.00</p>
                                     </div>
