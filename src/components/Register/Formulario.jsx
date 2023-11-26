@@ -48,7 +48,6 @@ export default function Formulario() {
             validatePassword(user.password) &&
             user.password === user.confirmPassword
         ) {
-            localStorage.setItem('loggeado', JSON.stringify(user));
             navigate("/")
         } else { 
             setError(true);
@@ -63,10 +62,6 @@ export default function Formulario() {
         }));
         setError(false);
     };
-
-
-
-
 
 
     return (

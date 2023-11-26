@@ -1,8 +1,10 @@
 import { ArrowLeftIcon } from '@heroicons/react/24/outline'
 import { XCircleIcon } from '@heroicons/react/20/solid'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 
 export default function Formulario() {
+    const navigate = useNavigate()
 
     const [usuario, setUsuario] = useState({
         correo: "",
@@ -23,7 +25,7 @@ export default function Formulario() {
     };
 
     const validarUsuario = (usuario) => {
-        const regexUsuario = /^[a-zA-Z0-9_]{4,}$/;
+        const regexUsuario = /^[a-zA-Z0-9_]{3,}$/;
         return regexUsuario.test(usuario);
     };
 
@@ -34,10 +36,9 @@ export default function Formulario() {
             validarCorreo(usuario.correo) &&
             validarContraseña(usuario.contra)
         ) {
-            console.log("Usuario, correo y contraseña válidos");
-            console.log(usuario);
+            localStorage.setItem('logged', JSON.stringify(usuario));
+            navigate("/")
         } else {
-            console.log("Usuario, correo o contraseña inválidos");
             setError(true)
         }
     }

@@ -9,70 +9,21 @@ export default function Carrito() {
     const [precios, setPrecios] = useState([]);
     const [items, setItems] = useState(false);
     const navigate = useNavigate();
+    const [noLoggeado, setNoLoggeado] = useState(true);
 
-    const [dataExample, setDataExample] = useState([
-        {
-            id: 1,
-            nombre: "Collarcito",
-            precio: 100,
-            marca: "Guess",
-            modelo: "Collar",
-            foto: "aga.webp",
-            cantidad: 1,
-        },
-        {
-            id: 2,
-            nombre: "Mochila",
-            precio: 599,
-            marca: "Guess",
-            modelo: "Mochila",
-            foto: "aga.webp",
-            cantidad: 1,
-        },
-        {
-            id: 3,
-            nombre: "Mochila",
-            precio: 599,
-            marca: "Guess",
-            modelo: "Mochila",
-            foto: "aga.webp",
-            cantidad: 1,
-        },
-        {
-            id: 4,
-            nombre: "Mochila",
-            precio: 599,
-            marca: "Guess",
-            modelo: "Mochila",
-            foto: "aga.webp",
-            cantidad: 1,
-        },
-        {
-            id: 5,
-            nombre: "Mochila",
-            precio: 599,
-            marca: "Guess",
-            modelo: "Mochila",
-            foto: "aga.webp",
-            cantidad: 1,
-        },
-        {
-            id: 6,
-            nombre: "Mochila",
-            precio: 599,
-            marca: "Guess",
-            modelo: "Mochila",
-            foto: "aga.webp",
-            cantidad: 1,
-        }
-    ])
+
+    const [dataExample, setDataExample] = useState([])
 
     useEffect(() => {
-        setPrecios(dataExample);
-        if (dataExample.length > 0) {
-            setItems(true)
-        } else {
-            setItems(false);
+        const usuario = localStorage.getItem('logged')
+        if(usuario != null) {
+            setNoLoggeado(false)
+            setPrecios(dataExample);
+            if (dataExample.length > 0) {
+                setItems(true)
+            } else {
+                setItems(false);
+            }
         }
     }, [dataExample]);
 
@@ -110,8 +61,27 @@ export default function Carrito() {
         navigate("/resumen")
     };
 
+
+    if (noLoggeado) {
+        return (
+            <main className="flex justify-center my-32 items-center bg-white px-6 lg:px-8 ">
+                <div className="text-center">
+                    <p className=" text-base leading-7 text-gray-600">Inicia sesión antes de ver tu carrito</p>
+                    <div className="mt-10 flex items-center justify-center gap-x-6">
+                        <a
+                            href="/login"
+                            className="rounded-md bg-[#322017] px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#4a372d] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 duration-300"
+                        >
+                            Volver
+                        </a>
+                    </div>
+                </div>
+            </main>
+        )
+    }
+
     return (
-        <div className="flex justify-center p-8 w-full max-w-6xl flex-col mx-auto mb-40">
+        <div className="flex justify-center p-8 w-full max-w-6xl flex-col mx-auto mb-4">
             <div className='flex justify-between items-center w-full mt-12'>
                 <div>
                     <h3 className='text-4xl font-normal text-gray-500'>Tu carrito</h3>
