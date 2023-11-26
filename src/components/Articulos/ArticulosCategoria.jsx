@@ -16,7 +16,7 @@ export default function ArticulosCategoria(props) {
                             <div className="relative">
                                 <div className="relative h-72 w-full overflow-hidden rounded-lg">
                                     <img
-                                        src={producto.foto}
+                                        src={`/public/articulos/${producto.foto}.jpg`}
                                         alt={producto.nombre}
                                         className="h-full w-full object-cover object-center"
                                     />
@@ -38,7 +38,7 @@ export default function ArticulosCategoria(props) {
                                     
                                     className="relative flex items-center justify-center rounded-md border border-transparent bg-gray-100 py-2 px-8 text-sm font-medium text-gray-900 hover:bg-gray-200"
                                 >
-                                    Add to bag<span className="sr-only">, {producto.nombre}</span>
+                                    Añadir al carrito <span className="sr-only">, {producto.nombre}</span>
                                 </a>
                             </div>
                         </div>

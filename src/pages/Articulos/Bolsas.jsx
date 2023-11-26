@@ -1,25 +1,25 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Navbar from '../../components/Navbar'
 import Footer from '../../components/Footer'
 import ArticulosCategoria from '../../components/Articulos/ArticulosCategoria'
+import axios from '../../libs/axios'
 
 
 export default function Bolsas() {
+    const [bolsas, setBolsas] = useState([])
 
-    const products = [
-        {
-            id: 1,
-            nombre: 'Collar',
-            marca: 'Guess',
-            foto: 'https://tailwindui.com/img/ecommerce-images/product-page-03-related-product-01.jpg',
-            precio: '140',
-        },
-        
-    ]
+    useEffect(()=>{
+        axios.get('/productobolsa').then(function (response) {
+            setBolsas(response.data);
+        }).catch(function (err) {
+            console.log(err)
+        });
+    })
+
     return (
         <div>
             <Navbar/>
-                <ArticulosCategoria data={products}/>
+                <ArticulosCategoria data={bolsas}/>
             <Footer/>
         </div>
     )
