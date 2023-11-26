@@ -111,7 +111,7 @@ export default function Carrito() {
     };
 
     return (
-        <div className="flex justify-center p-8 w-full max-w-6xl flex-col mx-auto">
+        <div className="flex justify-center p-8 w-full max-w-6xl flex-col mx-auto mb-40">
             <div className='flex justify-between items-center w-full mt-12'>
                 <div>
                     <h3 className='text-4xl font-normal text-gray-500'>Tu carrito</h3>
