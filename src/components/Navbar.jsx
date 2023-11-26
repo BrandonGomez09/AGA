@@ -89,7 +89,6 @@ export default function Navbar() {
 
     return (
         <div className="bg-white z-50 relative">
-            {/* Mobile menu */}
             <Transition.Root show={open} as={Fragment}>
                 <Dialog as="div" className="relative z-40 lg:hidden" onClose={setOpen}>
                     <Transition.Child
@@ -126,8 +125,6 @@ export default function Navbar() {
                                         <XMarkIcon className="h-6 w-6" aria-hidden="true" />
                                     </button>
                                 </div>
-
-                                {/* Links */}
                                 <Tab.Group as="div" className="mt-2">
                                     <div className="border-b border-gray-200">
                                         <Tab.List className="-mb-px flex space-x-8 px-4">
@@ -192,13 +189,13 @@ export default function Navbar() {
 
                                 <div className="space-y-6 border-t border-gray-200 px-4 py-6">
                                     <div className="flow-root">
-                                        <a href="#" className="-m-2 block p-2 font-medium text-gray-900">
-                                            Sign in
+                                        <a href="/login" className="-m-2 block p-2 font-medium text-gray-900">
+                                            Iniciar sesión
                                         </a>
                                     </div>
                                     <div className="flow-root">
-                                        <a href="#" className="-m-2 block p-2 font-medium text-gray-900">
-                                            Create account
+                                        <a href="/register" className="-m-2 block p-2 font-medium text-gray-900">
+                                            Registrate
                                         </a>
                                     </div>
                                 </div>
@@ -265,7 +262,6 @@ export default function Navbar() {
                                                             {category.name}
                                                         </Popover.Button>
                                                     </div>
-
                                                     <Transition
                                                         as={Fragment}
                                                         enter="transition ease-out duration-200"
