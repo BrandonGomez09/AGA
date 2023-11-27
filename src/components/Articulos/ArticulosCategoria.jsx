@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react"
+import Notificacion from "../Notificaciones/Notificacion";
 
 export default function ArticulosCategoria(props) {
     const [data, setData] = useState([]);
     const [carrito, setCarrito] = useState([]);
+    const [mandaNoti, setMandaNoti] = useState(false)
 
     useEffect(() => {
         setData(props.data)
@@ -15,25 +17,35 @@ export default function ArticulosCategoria(props) {
     }, []);
 
 
-    
-const handleAdd = (producto) => {
-    const existingProduct = carrito.find((item) => item.id === producto.id && item.nombre === producto.nombre );
-    if (existingProduct) {
-        const updatedCart = carrito.map((item) =>
-            item.id === producto.id && item.nombre === producto.nombre ? { ...item, cantidad: item.cantidad + 1 } : item
-        );
-        setCarrito(updatedCart);
-        localStorage.setItem("cart", JSON.stringify(updatedCart));
-    } else {
-        const newCart = [...carrito, { ...producto, cantidad: 1 }];
-        setCarrito(newCart);
-        localStorage.setItem("cart", JSON.stringify(newCart));
-    }
-};
+
+    const handleAdd = (producto) => {
+        const existingProduct = carrito.find((item) => item.id === producto.id && item.nombre === producto.nombre);
+        if (existingProduct) {
+            const updatedCart = carrito.map((item) =>
+                item.id === producto.id && item.nombre === producto.nombre ? { ...item, cantidad: item.cantidad + 1 } : item
+            );
+            setCarrito(updatedCart);
+            localStorage.setItem("cart", JSON.stringify(updatedCart));
+            setMandaNoti(true);
+            setTimeout(() => {
+                setMandaNoti(false);
+            }, 1500);
+        } else {
+            const newCart = [...carrito, { ...producto, cantidad: 1 }];
+            setCarrito(newCart);
+            localStorage.setItem("cart", JSON.stringify(newCart));
+            setMandaNoti(true);
+            setTimeout(() => {
+                setMandaNoti(false);
+            }, 1500);
+            
+        }
+    };
 
 
     return (
         <div className="bg-white">
+            <Notificacion addItem={mandaNoti} />
             <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
                 <div className="mt-8 grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8">
                     {data.map((producto) => (

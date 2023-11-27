@@ -29,7 +29,7 @@ export default function ResumenOrden() {
             <main className="relative lg:min-h-full">
                 <div className="h-80 overflow-hidden lg:absolute lg:h-full lg:w-1/2 lg:pr-4 xl:pr-12">
                     <img
-                        src="https://scontent.ftgz2-1.fna.fbcdn.net/v/t39.30808-6/365782720_749415490525306_286230229346425318_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=5f2048&_nc_ohc=INF86AxVhd4AX8zVhVt&_nc_ht=scontent.ftgz2-1.fna&oh=00_AfBcaS3CHeKc-V1Mfs89LdhVfkF3fAJ55S5NBVQCkxV3yA&oe=65658F75"
+                        src="/main-img-4.jpeg"
                         alt="TODO"
                         className="h-full w-full object-cover object-center"
                     />
@@ -91,7 +91,7 @@ export default function ResumenOrden() {
 
 
                             <div className="mt-16 border-t border-gray-200 py-6 text-right">
-                                <a onClick={handleDelete} href="/" className="text-sm font-medium text-[#3f281c] hover:text-indigo-500">
+                                <a onClick={handleDelete} href="/" className="text-sm font-medium text-[#3f281c] hover:text-[#5d3f2f]">
                                     Continue Shopping
                                     <span aria-hidden="true"> &rarr;</span>
                                 </a>
