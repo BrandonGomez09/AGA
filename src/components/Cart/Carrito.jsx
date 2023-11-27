@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { TrashIcon, MinusIcon, PlusIcon } from '@heroicons/react/24/outline'
 import { useNavigate } from 'react-router-dom';
 
@@ -10,13 +10,13 @@ export default function Carrito() {
     const [items, setItems] = useState(false);
     const navigate = useNavigate();
     const [noLoggeado, setNoLoggeado] = useState(true);
+    const [dataExample, setDataExample] = useState(JSON.parse(localStorage.getItem('cart')) || []);
 
 
-    const [dataExample, setDataExample] = useState([])
 
     useEffect(() => {
-        const usuario = localStorage.getItem('logged')
-        if(usuario != null) {
+        const usuario = localStorage.getItem('logged');
+        if (usuario != null) {
             setNoLoggeado(false)
             setPrecios(dataExample);
             if (dataExample.length > 0) {
@@ -35,27 +35,37 @@ export default function Carrito() {
     }, [precios]);
 
 
-    const handleIncrement = (id) => {
+    const handleIncrement = (data) => {
         const updatedData = dataExample.map((producto) =>
-            producto.id === id ? { ...producto, cantidad: producto.cantidad + 1 } : producto
+            producto.id === data.id && data.nombre === producto.nombre  ? { ...producto, cantidad: producto.cantidad + 1 } : producto
         );
         setDataExample(updatedData);
+        localStorage.setItem('cart', JSON.stringify(updatedData));
+
+        const totalArticulos = updatedData.reduce((total, producto) => total + producto.cantidad, 0);
+        localStorage.setItem('numeroArticulos', JSON.stringify(totalArticulos));
     };
 
-    const handleDecrement = (id) => {
+    const handleDecrement = (data) => {
         const updatedData = dataExample.map((producto) =>
-            producto.id === id && producto.cantidad > 1 ? { ...producto, cantidad: producto.cantidad - 1 } : producto
+            producto.id === data.id && data.nombre === producto.nombre  && producto.cantidad > 1 ? { ...producto, cantidad: producto.cantidad - 1 } : producto
         );
         setDataExample(updatedData);
+        localStorage.setItem('cart', JSON.stringify(updatedData));
+
+        const totalArticulos = updatedData.reduce((total, producto) => total + producto.cantidad, 0);
+        localStorage.setItem('numeroArticulos', JSON.stringify(totalArticulos));
     };
 
-    const handleRemove = (id) => {
-        const updatedData = dataExample.filter((producto) => producto.id !== id);
+    const handleRemove = (data) => {
+        const updatedData = dataExample.filter((producto) => !(producto.id === data.id && producto.nombre === data.nombre));
         setDataExample(updatedData);
+        localStorage.setItem('cart', JSON.stringify(updatedData));
+    
+        const totalArticulos = updatedData.reduce((total, producto) => total + producto.cantidad, 0);
+        localStorage.setItem('numeroArticulos', JSON.stringify(totalArticulos));
     };
-
     const handleBuy = () => {
-        localStorage.setItem('carrito', JSON.stringify(dataExample));
         localStorage.setItem('total', JSON.stringify(total));
         setDataExample([]);
         navigate("/resumen")
@@ -106,11 +116,11 @@ export default function Carrito() {
                 </div>
                 : <div className='border-b-[0.6px] border-gray-200'>
                     {
-                        dataExample.map((data) => {
+                        dataExample.map((data, index) => {
                             return (
-                                <div key={data.id} className='flex justify-between items-center mb-14 mt-6'>
+                                <div key={index} className='flex justify-between items-center mb-14 mt-6'>
                                     <div className='flex justify-start items-center md:w-2/3 w-1/2'>
-                                        <img className='h-24 min-h-[6rem] w-auto hidden sm:block' src={data.foto} alt="item" />
+                                        <img className='h-24 min-h-[6rem] w-24 object-cover hidden sm:block'  src={`/public/articulos/${data.foto}.jpg`} alt="item" />
                                         <div className='flex flex-col text-sm md:ml-12 space-y-1 text-gray-500'>
                                             <p>{data.nombre}</p>
                                             <p>$ {data.precio}.00</p>
@@ -121,14 +131,14 @@ export default function Carrito() {
                                     <div className='flex justify-between items-center sm:w-1/3 w-1/2 text-gray-500'>
                                         <div className='md:flex items-center justify-around gap-x-4 hidden '>
                                             <MinusIcon
-                                                onClick={() => handleDecrement(data.id)}
+                                                onClick={() => handleDecrement(data)}
                                                 className='h-4 w-auto cursor-pointer' />
                                             <p>{data.cantidad}</p>
                                             <PlusIcon
-                                                onClick={() => handleIncrement(data.id)}
+                                                onClick={() => handleIncrement(data)}
                                                 className='h-4 w-auto cursor-pointer' />
                                             <TrashIcon
-                                                onClick={() => handleRemove(data.id)}
+                                                onClick={() => handleRemove(data)}
                                                 className='md:ml-12 h-4 w-auto cursor-pointer' />
                                         </div>
                                         <p>$ {data.precio}.00</p>

@@ -1,17 +1,42 @@
 import { useEffect, useState } from "react"
 
 export default function ArticulosCategoria(props) {
-    const [producto, setProducto] = useState([]);
+    const [data, setData] = useState([]);
+    const [carrito, setCarrito] = useState([]);
+
+    useEffect(() => {
+        setData(props.data)
+    }, [props]);
+
+
+    useEffect(() => {
+        const carritoGuardado = JSON.parse(localStorage.getItem("cart")) || [];
+        setCarrito(prevCarrito => (carritoGuardado.length > 0 ? carritoGuardado : prevCarrito));
+    }, []);
+
+
     
-    useEffect(() =>{
-        setProducto(props.data)
-    },[props])
+const handleAdd = (producto) => {
+    const existingProduct = carrito.find((item) => item.id === producto.id && item.nombre === producto.nombre );
+    if (existingProduct) {
+        const updatedCart = carrito.map((item) =>
+            item.id === producto.id && item.nombre === producto.nombre ? { ...item, cantidad: item.cantidad + 1 } : item
+        );
+        setCarrito(updatedCart);
+        localStorage.setItem("cart", JSON.stringify(updatedCart));
+    } else {
+        const newCart = [...carrito, { ...producto, cantidad: 1 }];
+        setCarrito(newCart);
+        localStorage.setItem("cart", JSON.stringify(newCart));
+    }
+};
+
 
     return (
         <div className="bg-white">
             <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
                 <div className="mt-8 grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8">
-                    {producto.map((producto) => (
+                    {data.map((producto) => (
                         <div key={producto.id}>
                             <div className="relative">
                                 <div className="relative h-72 w-full overflow-hidden rounded-lg">
@@ -35,8 +60,8 @@ export default function ArticulosCategoria(props) {
                             </div>
                             <div className="mt-6">
                                 <a
-                                    
-                                    className="relative flex items-center justify-center rounded-md border border-transparent bg-gray-100 py-2 px-8 text-sm font-medium text-gray-900 hover:bg-gray-200"
+                                    onClick={() => handleAdd(producto)}
+                                    className="cursor-pointer relative flex items-center justify-center rounded-md border border-transparent bg-gray-100 py-2 px-8 text-sm font-medium text-gray-900 hover:bg-gray-200"
                                 >
                                     Añadir al carrito <span className="sr-only">, {producto.nombre}</span>
                                 </a>

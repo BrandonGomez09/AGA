@@ -7,13 +7,12 @@ export default function ResumenOrden() {
     const [carrito, setCarrito] = useState([]);
 
     useEffect(()=>{
-        const compra = JSON.parse(localStorage.getItem("carrito")) || [];
+        const compra = JSON.parse(localStorage.getItem("cart")) || [];
         setCarrito(compra);
-        console.log(carrito)
     },[]);
 
     const handleDelete =()=>{
-        localStorage.removeItem("carrito");
+        localStorage.removeItem("cart");
         localStorage.removeItem("total");
     }
 
@@ -25,20 +24,6 @@ export default function ResumenOrden() {
         )
     }
 
-
-
-    const products = [
-        {
-            id: 1,
-            name: 'Basic Tee',
-            href: '#',
-            price: '$36.00',
-            color: 'Charcoal',
-            size: 'M',
-            imageSrc: 'https://tailwindui.com/img/ecommerce-images/confirmation-page-06-product-01.jpg',
-            imageAlt: "Model wearing men's charcoal basic tee in large.",
-        },
-    ]
     return (
         <>
             <main className="relative lg:min-h-full">
@@ -70,7 +55,7 @@ export default function ResumenOrden() {
                                 {carrito.map((product) => (
                                     <li key={product.id} className="flex space-x-6 py-6">
                                         <img
-                                            src={product.foto}
+                                            src={`/public/articulos/${product.foto}.jpg`}
                                             alt={product.foto}
                                             className="h-24 w-24 flex-none rounded-md bg-gray-100 object-cover object-center"
                                         />
