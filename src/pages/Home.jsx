@@ -4,7 +4,7 @@ import Main from '../components/Home/Main'
 import MasVendidos from '../components/Home/MasVendidos'
 import Footer from '../components/Footer'
 import Reviews from '../components/Home/Reviews'
-import AcercaDe from '../components/Home/Acercade'
+import AcercaDe from '../components/Home/AcercadeDe'
 
 
 export default function Home() {
