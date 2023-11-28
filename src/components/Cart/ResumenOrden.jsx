@@ -37,16 +37,12 @@ export default function ResumenOrden() {
                 <div>
                     <div className="mx-auto max-w-2xl py-16 px-4 sm:px-6 sm:py-24 lg:grid lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8 lg:py-16 xl:gap-x-24">
                         <div className="lg:col-start-2">
-                            <h1 className="text-sm font-medium text-[#6b432f]">Pago realizado exitósamente</h1>
+    
                             <p className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">¡Gracias por apartar!</p>
-                            <p className="mt-4 text-base text-gray-500">
-                            Agradecemos su pedido, lo estamos procesando actualmente. Así que quédese tranquilo y le enviaremos la confirmación muy pronto.
+                            <p className="mt-4 text-base text-gray-500 mb-20">
+                            Agradecemos su pedido, lo estamos procesando actualmente.<br/> <br/> Así que quédese tranquilo y le enviaremos la confirmación muy pronto. Enviar captura de Apartado al 9612486037.
                             </p>
 
-                            <dl className="mt-10 text-sm font-medium">
-                                <dt className="text-gray-900"> Numero de rastreo</dt>
-                                <dd className="mt-2 text-[#6b432f]">#51547878755545848512</dd>
-                            </dl>
 
                             <ul
                                 role="list"
@@ -92,7 +88,7 @@ export default function ResumenOrden() {
 
                             <div className="mt-16 border-t border-gray-200 py-6 text-right">
                                 <a onClick={handleDelete} href="/" className="text-sm font-medium text-[#3f281c] hover:text-[#5d3f2f]">
-                                    Continue Shopping
+                                    Ir al inicio
                                     <span aria-hidden="true"> &rarr;</span>
                                 </a>
                             </div>

@@ -76,7 +76,7 @@ export default function Carrito() {
         return (
             <main className="flex justify-center my-32 items-center bg-white px-6 lg:px-8 ">
                 <div className="text-center">
-                    <p className=" text-base leading-7 text-gray-600">Inicia sesión antes de ver tu carrito</p>
+                    <p className=" text-base leading-7 text-gray-600">Inicia sesión antes de ver tu lista de apartados</p>
                     <div className="mt-10 flex items-center justify-center gap-x-6">
                         <a
                             href="/login"
@@ -94,10 +94,10 @@ export default function Carrito() {
         <div className="flex justify-center p-8 w-full max-w-6xl flex-col mx-auto mb-4">
             <div className='flex justify-between items-center w-full mt-12'>
                 <div>
-                    <h3 className='text-4xl font-normal text-gray-500'>Tu carrito</h3>
+                    <h3 className='text-4xl font-normal text-gray-500'>Tus apartados</h3>
                 </div>
                 <div>
-                    <a href='/' className='underline text-gray-500'>Seguir comprando</a>
+                    <a href='/' className='underline text-gray-500'>Seguir viendo artículos</a>
                 </div>
             </div>
             <div className='flex justify-between w-full mt-12 uppercase text-[0.6rem] text-gray-400 border-b-[0.5px] pb-3 border-gray-200'>
@@ -112,7 +112,7 @@ export default function Carrito() {
             {!items
                 ?
                 <div className='flex mt-12 justify-center items-center'>
-                    <h2 className='text-gray-500'>Lo sentimos, aún no has añadido productos a tu carrito :(</h2>
+                    <h2 className='text-gray-500'>Lo sentimos, aún no has apartado ningun productos:(</h2>
                 </div>
                 : <div className='border-b-[0.6px] border-gray-200'>
                     {
@@ -157,7 +157,7 @@ export default function Carrito() {
                             <p>$  {total}.00 MXN</p>
                         </div>
                         <div>
-                            <button onClick={handleBuy} className='px-20 py-2 bg-[#322017] text-center font-light text-white hover:bg-[#4a372d]text-sm mt-2 text-sm tracking-widest'>Pagar pedido</button>
+                            <button onClick={handleBuy} className='px-20 py-2 bg-[#322017] text-center font-light text-white hover:bg-[#4a372d]text-sm mt-2 text-sm tracking-widest'>Apartar pedido</button>
                         </div>
                     </div>
                 </div>}

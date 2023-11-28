@@ -74,7 +74,7 @@ export default function TodosArticulos(props) {
                                     onClick={() => handleAdd(producto)}
                                     className="cursor-pointer relative flex items-center justify-center rounded-md border border-transparent bg-gray-100 py-2 px-8 text-sm font-medium text-gray-900 hover:bg-gray-200"
                                 >
-                                    Añadir al carrito <span className="sr-only">, {producto.nombre}</span>
+                                    Apartar <span className="sr-only">, {producto.nombre}</span>
                                 </a>
                             </div>
                         </div>

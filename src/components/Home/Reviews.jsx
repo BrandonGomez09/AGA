@@ -2,20 +2,20 @@ import { StarIcon } from '@heroicons/react/20/solid'
 
 const reviews = {
     average: 4,
-    totalCount: 1624,
+    totalCount: 480,
     counts: [
-        { rating: 5, count: 1019 },
-        { rating: 4, count: 162 },
-        { rating: 3, count: 97 },
-        { rating: 2, count: 199 },
-        { rating: 1, count: 147 },
+        { rating: 5, count: 320 },
+        { rating: 4, count: 120 },
+        { rating: 3, count: 22 },
+        { rating: 2, count: 15 },
+        { rating: 1, count: 3 },
     ],
     featured: [
         {
             id: 1,
             rating: 5,
             content: `
-        <p>A.G.A. es mucho más que una tienda de bolsas y accesorios; es una experiencia de elegancia en cada detalle y estilo en cada momento. Desde el momento en que entré, me sentí inmerso en un mundo de refinamiento y buen gusto. </p>
+        <p> Me gusta mucho el manejo que tienen con los clientes y la atencion que me han brindado.</p>
       `,
             author: 'José Luis Ruiz Sánchez',
             avatarSrc:
@@ -25,7 +25,7 @@ const reviews = {
             id: 2,
             rating: 5,
             content: `
-        <p>Cada bolsa y accesorio cuenta una historia de diseño refinado y atención meticulosa a los detalles.</p>
+        <p>Sinceramente me gusta mucho la atencion que le otorgan a los clientes.</p>
       `,
             author: 'María Fernanda López Hernández',
             avatarSrc:
@@ -35,7 +35,7 @@ const reviews = {
             id: 3,
             rating: 5,
             content: `
-        <p>La marca ha logrado personificar el estilo en cada momento, ofreciendo piezas que transforman lo cotidiano en extraordinario.</p>
+        <p>Me agrada mucho la calidad que manejan los productos y que cuentan con muy buenos precios.</p>
       `,
             author: 'Juan Pablo Gómez Pérez',
             avatarSrc:
@@ -53,7 +53,7 @@ export default function Reviews() {
         <div className="bg-white border-t">
             <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-12 lg:gap-x-8 lg:py-32 lg:px-8">
                 <div className="lg:col-span-4">
-                    <h2 className="text-2xl font-bold tracking-tight text-gray-900">Customer Reviews</h2>
+                    <h2 className="text-2xl font-bold tracking-tight text-gray-900">Reseñas</h2>
 
                     <div className="mt-3 flex items-center">
                         <div>
@@ -71,19 +71,18 @@ export default function Reviews() {
                             </div>
                             <p className="sr-only">{reviews.average} out of 5 stars</p>
                         </div>
-                        <p className="ml-2 text-sm text-gray-900">Based on {reviews.totalCount} reviews</p>
+                        <p className="ml-2 text-sm text-gray-900">Basado en {reviews.totalCount} reseñas</p>
                     </div>
 
                     <div className="mt-6">
-                        <h3 className="sr-only">Review data</h3>
-
+                        <h3 className="sr-only">Data</h3>
                         <dl className="space-y-3">
                             {reviews.counts.map((count) => (
                                 <div key={count.rating} className="flex items-center text-sm">
                                     <dt className="flex flex-1 items-center">
                                         <p className="w-3 font-medium text-gray-900">
                                             {count.rating}
-                                            <span className="sr-only"> star reviews</span>
+                                            <span className="sr-only"> Reseñas</span>
                                         </p>
                                         <div aria-hidden="true" className="ml-1 flex flex-1 items-center">
                                             <StarIcon
@@ -116,15 +115,8 @@ export default function Reviews() {
                     <div className="mt-10">
                         <h3 className="text-lg font-medium text-gray-900">Comparte tus pensamientos</h3>
                         <p className="mt-1 text-sm text-gray-600">
-                            If you’ve used this product, share your thoughts with other customers
+                        Si has utilizado este producto, comparte tus opiniones con otros clientes
                         </p>
-
-                        <a
-                            href="#"
-                            className="mt-6 inline-flex w-full items-center justify-center rounded-md border border-gray-300 bg-white py-2 px-8 text-sm font-medium text-gray-900 hover:bg-gray-50 sm:w-auto lg:w-full"
-                        >
-                            Write a review
-                        </a>
                     </div>
                 </div>
 

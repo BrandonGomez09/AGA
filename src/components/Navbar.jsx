@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { Fragment, useState } from 'react'
 import { Dialog, Popover, Tab, Transition } from '@headlessui/react'
-import { Bars3Icon, ShoppingBagIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Bars3Icon, ShoppingBagIcon, XMarkIcon, ArrowRightOnRectangleIcon } from '@heroicons/react/24/outline'
 
 const navigation = {
     categories: [
@@ -73,7 +73,7 @@ const navigation = {
                         { name: 'Ver más', href: '/relojes' },
                     ],
                 },
-                
+
             ],
         },
 
@@ -86,6 +86,20 @@ function classNames(...classes) {
 
 export default function Navbar() {
     const [open, setOpen] = useState(false);
+    const [logged, setLogged] = useState(true);
+
+    useEffect(() => {
+        const hayUsuario = JSON.parse(localStorage.getItem('logged'));
+        if (hayUsuario) {
+            setLogged(false);
+        }
+    }, [logged]);
+
+
+    const handleLogout = ()=>{
+        localStorage.removeItem('logged');
+        window.location.reload();
+    }
 
     return (
         <div className="bg-white z-50 relative">
@@ -187,7 +201,7 @@ export default function Navbar() {
                                     </Tab.Panels>
                                 </Tab.Group>
 
-                                <div className="space-y-6 border-t border-gray-200 px-4 py-6">
+                                {logged ? <div className="space-y-6 border-t border-gray-200 px-4 py-6">
                                     <div className="flow-root">
                                         <a href="/login" className="-m-2 block p-2 font-medium text-gray-900">
                                             Iniciar sesión
@@ -198,7 +212,7 @@ export default function Navbar() {
                                             Registrate
                                         </a>
                                     </div>
-                                </div>
+                                </div> : <ArrowRightOnRectangleIcon onClick={handleLogout} className='w-6 h-6 text-gray-400 cursor-pointer'/>}
 
                                 <div className="border-t border-gray-200 px-4 py-6">
                                     <a href="#" className="-m-2 flex items-center p-2">
@@ -293,7 +307,7 @@ export default function Navbar() {
                                                                                         {item.name}
                                                                                     </a>
                                                                                     <p aria-hidden="true" className="mt-1">
-                                                                                    Ir ahora
+                                                                                        Ir ahora
                                                                                     </p>
                                                                                 </div>
                                                                             ))}
@@ -333,7 +347,7 @@ export default function Navbar() {
                             </Popover.Group>
 
                             <div className="ml-auto flex items-center">
-                                <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
+                            {logged ?  <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
                                     <a href="/login" className="text-sm font-medium text-gray-700 hover:text-gray-800">
                                         Iniciar sesión
                                     </a>
@@ -341,7 +355,7 @@ export default function Navbar() {
                                     <a href="/register" className="text-sm font-medium text-gray-700 hover:text-gray-800">
                                         Registrarse
                                     </a>
-                                </div>
+                                </div> : <ArrowRightOnRectangleIcon onClick={handleLogout} className='w-6 h-6 text-gray-400 cursor-pointer'/>}
 
                                 <div className="hidden lg:ml-8 lg:flex">
                                     <a href="#" className="flex items-center text-gray-700 hover:text-gray-800">

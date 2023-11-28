@@ -2,18 +2,18 @@ const incentives = [
     {
         name: 'Envio gratis',
         imageSrc: 'https://tailwindui.com/img/ecommerce/icons/icon-shipping-simple.svg',
-        description: "En realidad, no es gratis, simplemente le ponemos precio a los productos. Alguien está pagando por ello y no somos nosotros.",
+        description: "El envio cuenta con un costo extra",
     },
     {
-        name: '10 años de garantía',
+        name: '15 días de garantía',
         imageSrc: 'https://tailwindui.com/img/ecommerce/icons/icon-warranty-simple.svg',
-        description: "Si se rompe en los primeros 10 años lo reemplazaremos. Después de eso, estarás solo.",
+        description: " Por cualquier tipo de daño los primeros 15 dias cuentas con la garantía.",
     },
     {
         name: 'Cambios',
         imageSrc: 'https://tailwindui.com/img/ecommerce/icons/icon-exchange-simple.svg',
         description:
-            "Si no te gusta, cámbialo a uno de tus amigos por algo suyo. Pero no lo envíes aquí.",
+            " Si quieres realizar el cambio comunicate directamente con la dueña.",
     },
 ]
 
@@ -27,7 +27,7 @@ export default function AcercaDe() {
                         Construimos nuestro negocio sobre la base del servicio al cliente.
                         </h2>
                         <p className="mt-4 text-gray-500">
-                        Al menos al principio, pero luego nos dimos cuenta de que podíamos ganar mucho más dinero si dejáramos de preocuparnos por eso. Nuestra nueva estrategia es escribir un montón de cosas que se vean muy bien en los titulares, luego aclararlas en la letra pequeña, pero esperando que la gente no las lea.
+                        Esto fue un emprendimiento para poder generar ganancias y poder realizar las ventas de mis productos. Decidimos emprender nuestro negocio sobre la base a la venta de el cliente.
                         </p>
                     </div>
                     <div className="mt-16 grid grid-cols-1 gap-y-10 gap-x-8 lg:grid-cols-3">
