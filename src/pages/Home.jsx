@@ -6,6 +6,7 @@ import Footer from '../components/Footer'
 import Reviews from '../components/Home/Reviews'
 import AcercaDe from '../components/Home/Acercade'
 
+
 export default function Home() {
     return (
         <>
