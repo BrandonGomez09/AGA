@@ -17,7 +17,7 @@ const incentives = [
     },
 ]
 
-export default function Acercade() {
+export default function About() {
     return (
         <div className="bg-white">
             <div className="mx-auto max-w-7xl py-24 sm:px-2 sm:py-32 lg:px-4">

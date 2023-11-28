@@ -1,10 +1,10 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
-import Main from '../components/Home/Main'
-import MasVendidos from '../components/Home/MasVendidos'
-import Footer from '../components/Footer'
-import Reviews from '../components/Home/Reviews'
-import Acercade from '../components/Home/Acercade'
+import Main from '../components/Home/Main.jsx'
+import MasVendidos from '../components/Home/MasVendidos.jsx'
+import Footer from '../components/Footer.jsx'
+import Reviews from '../components/Home/Reviews.jsx'
+import About from '../components/Home/About.jsx'
 
 
 export default function Home() {
@@ -13,7 +13,7 @@ export default function Home() {
             <Navbar/>
             <Main/>
             <MasVendidos/>
-            <Acercade/>
+            <About/>
             <Reviews/>
             <Footer/>
         </>
