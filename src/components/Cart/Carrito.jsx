@@ -120,7 +120,7 @@ export default function Carrito() {
                             return (
                                 <div key={index} className='flex justify-between items-center mb-14 mt-6'>
                                     <div className='flex justify-start items-center md:w-2/3 w-1/2'>
-                                        <img className='h-24 min-h-[6rem] w-24 object-cover hidden sm:block'  src={`/public/articulos/${data.foto}.jpg`} alt="item" />
+                                        <img className='h-24 min-h-[6rem] w-24 object-cover hidden sm:block'  src={`/articulos/${data.foto}.jpg`} alt="item" />
                                         <div className='flex flex-col text-sm md:ml-12 space-y-1 text-gray-500'>
                                             <p>{data.nombre}</p>
                                             <p>$ {data.precio}.00</p>
