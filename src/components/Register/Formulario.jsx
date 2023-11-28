@@ -74,7 +74,7 @@ export default function Formulario() {
                         </a>
                         <img
                             className="mx-auto h-20 w-auto"
-                            src="/public/aga.webp"
+                            src="/aga.webp"
                             alt="aga-logo"
                         />
                     </div>
