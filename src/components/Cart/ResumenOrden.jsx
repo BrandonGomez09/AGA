@@ -51,7 +51,7 @@ export default function ResumenOrden() {
                                 {carrito.map((product) => (
                                     <li key={product.id} className="flex space-x-6 py-6">
                                         <img
-                                            src={`/public/articulos/${product.foto}.jpg`}
+                                            src={`/articulos/${product.foto}.jpg`}
                                             alt={product.foto}
                                             className="h-24 w-24 flex-none rounded-md bg-gray-100 object-cover object-center"
                                         />
