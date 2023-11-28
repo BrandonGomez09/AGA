@@ -51,7 +51,7 @@ export default function TodosArticulos(props) {
                             <div className="relative">
                                 <div className="relative h-72 w-full overflow-hidden rounded-lg">
                                     <img
-                                        src={`/public/articulos/${producto.foto}.jpg`}
+                                        src={`/articulos/${producto.foto}.jpg`}
                                         alt={producto.nombre}
                                         className="h-full w-full object-cover object-center"
                                     />
